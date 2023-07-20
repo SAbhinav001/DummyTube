@@ -1,4 +1,4 @@
-import { AppContext } from "./Context/contextAPI";
+import { AppContext } from "./context/contextApi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Feed from "./Components/Feed"
 import Header from "./Components/Header";

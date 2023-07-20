@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import LeftNav from "./LeftNav";
-import { Context } from "../Context/contextAPI";
+import { Context } from "../context/contextApi";
 import VideoCard from "./VideoCard";
 
 const Feed = () => {
