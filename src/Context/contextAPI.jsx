@@ -1,41 +1,40 @@
-import { createContext, useEffect, useState } from "react";
-import { FetchFromApi } from "../Utils/Api";
+import React, { createContext, useState, useEffect } from "react";
 
+import { fetchDataFromApi } from "../utils/api";
 export const Context = createContext();
 
 export const AppContext = (props) => {
-  const [loading, setLoading] = useState(false);
-  const [searchResults, setSearchresults] = useState(false);
-  const [selectCategories, setSelectCategories] = useState("New");
-  const [mobileMenu, setMobileMenu] = useState(false);
-  
-  // useEffect(() => {
-  //   fetchSelectedQueryResult(selectCategories);
-  // }, [selectCategories]);
+    const [loading, setLoading] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("New");
+    const [mobileMenu, setMobileMenu] = useState(false);
 
-  // const fetchSelectedQueryResult = (query) => {
-  //   setLoading(true);
-  //   FetchFromApi(`search/?=${query}`).then(({contents}) => {
-  //       console.log(contents)
-  //     //setSearchresults(res.data);
-  //     setLoading(false);
-  //   });
-   
-  // };
+    useEffect(() => {
+        fetchSelectedCategoryData(selectedCategory);
+    }, [selectedCategory]);
 
-  return (
-    <Context.Provider
-      value={{
-        loading,
-        searchResults,
-        selectCategories,
-        mobileMenu,
-        setMobileMenu,
-        setSearchresults,
-        setSelectCategories,
-      }}
-    >
-      {props.children}
-    </Context.Provider>
-  );
+    const fetchSelectedCategoryData = (query) => {
+        setLoading(true);
+        fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
+            console.log(contents);
+            setSearchResults(contents);
+            setLoading(false);
+        });
+    };
+
+    return (
+        <Context.Provider
+            value={{
+                loading,
+                setLoading,
+                searchResults,
+                selectedCategory,
+                setSelectedCategory,
+                mobileMenu,
+                setMobileMenu,
+            }}
+        >
+            {props.children}
+        </Context.Provider>
+    );
 };
