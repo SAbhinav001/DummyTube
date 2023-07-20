@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import ytMobileLogo from "../Images/yt-logo-mobile.png";
 import ytLogo from "../Images/yt-logo.png";
@@ -23,6 +23,8 @@ const Header = () => {
       navigate(`/search/${searchQuery}`);
     
   };
+
+  
 
   //FOR MOBILEMENU
   const mobileMenuToggle = () => {
