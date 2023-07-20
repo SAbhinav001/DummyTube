@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import LeftNavMenuItem from "./LeftNavMenuItem";
-import { categories } from "../Utils/constant";
-import { Context } from "../Context/contextAPI";
+import {categories} from "../Utils/constant"
+import { Context } from "../context/contextApi";
 
 const LeftNav = () => {
     const { selectedCategory, setSelectedCategory, mobileMenu } =
@@ -53,7 +53,10 @@ const LeftNav = () => {
                         </React.Fragment>
                     );
                 })}
-               
+                <hr className="my-5 border-white/[0.2]" />
+                <div className="text-white/[0.5] text-[12px]">
+                    Clone by: Abhinav Shrivastav
+                </div>
             </div>
         </div>
     );
