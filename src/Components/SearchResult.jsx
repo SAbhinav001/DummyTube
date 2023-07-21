@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { fetchDataFromApi } from "../utils/api";
-import { Context } from "../Context/contextAPI";
+import { fetchDataFromApi } from "../Utils/Api";
+import { Context } from "../context/contextApi";
 import LeftNav from "./LeftNav";
 import SearchResultVideoCard from "./SearchResultVideoCard";
 
@@ -30,12 +30,12 @@ const SearchResult = () => {
             <LeftNav />
             <div className="grow w-[calc(100%-240px)] h-full overflow-y-auto bg-black">
                 <div className="grid grid-cols-1 gap-2 p-5">
-                    {result?.map((item) => {
+                    {result?.map((item,index) => {
                         if (item?.type !== "video") return false;
                         let video = item.video;
                         return (
                             <SearchResultVideoCard
-                                key={video.videoId}
+                                key={index}
                                 video={video}
                             />
                         );
