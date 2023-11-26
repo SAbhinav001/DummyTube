@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { abbreviateNumber } from "js-abbreviation-number";
 import { useParams } from "react-router-dom";
-import { Context } from "../Context/contextAPI";
+import { Context } from "../context/contextApi";
 import { fetchDataFromApi } from "../utils/api";
 import ReactPlayer from "react-player";
 import { BsFillCheckCircleFill } from "react-icons/bs";

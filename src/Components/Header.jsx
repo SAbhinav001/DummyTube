@@ -28,9 +28,8 @@ const Header = () => {
   };
 
   const searchQueryHandler1 = (item) => {
-    
+    setSearchQuery(item);
     navigate(`/search/${item}`);
-
   };
 
   useEffect(() => {
@@ -101,10 +100,10 @@ const Header = () => {
             placeholder="Search"
             value={searchQuery}
             onFocus={() => setShowSuggestion(true)}
-            onBlur={() =>  {
-                setTimeout(() => {
-                    setShowSuggestion(false);
-                  }, 200);
+            onBlur={() => {
+              setTimeout(() => {
+                setShowSuggestion(false);
+              }, 200);
             }}
           />
         </div>
@@ -112,12 +111,11 @@ const Header = () => {
         {searchResult.length > 0 && showSuggestion && (
           <div className="absolute top-full left-0 w-full mt-2 bg-black border border-[#303030] rounded-3xl">
             {searchResult.map((item, index) => {
-          
               return (
                 <li
-                onClick={()=>{
-                    searchQueryHandler1(item)
-                }}
+                  onClick={() => {
+                    searchQueryHandler1(item);
+                  }}
                   key={index}
                   className="py-2 px-4 hover:bg-gray-700 cursor-pointer text-white"
                 >
